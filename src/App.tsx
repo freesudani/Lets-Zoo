@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 
 const App: FC = () => {
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -17,7 +17,7 @@ export const blackboxVariant1 = {
 
 export const blackboxVariant2 = {
   hidden: {
-    x: "20vw",
+    x: "8vw",
     opacity: 0,
   },
   visible: {

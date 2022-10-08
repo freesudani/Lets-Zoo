@@ -1,23 +1,32 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { BlackboxProps } from "../types/types.types";
 import { blackboxVariant1, blackboxVariant2 } from "../animations/Blackbox";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Blackbox: FC<BlackboxProps> = (props) => {
-  const blackVariant = () => {
-    if (props.animation === 1) {
-      return blackboxVariant1;
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
     }
-    if (props.animation === 2) {
-      return blackboxVariant2;
+    if (!inView) {
+      controls.start("hidden");
     }
-  };
+  }, [controls, inView]);
 
   return (
     <motion.div
-      variants={blackVariant()}
+      ref={ref}
+      variants={
+        (props.animation === 1 && blackboxVariant1) ||
+        (props.animation === 2 && blackboxVariant2) ||
+        undefined
+      }
       initial="hidden"
-      animate="visible"
+      animate={controls}
       className={
         props.animation === 1
           ? "w-fit h-2/5 bg-black bg-opacity-70 rounded-2xl ml-14 p-5 flex flex-col justify-evenly items-start"

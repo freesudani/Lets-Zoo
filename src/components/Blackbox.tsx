@@ -1,6 +1,9 @@
 import { FC, useEffect } from "react";
 import { BlackboxProps } from "../types/types.types";
-import { blackboxVariant1, blackboxVariant2 } from "../animations/Blackbox";
+import {
+  blackboxVariant1,
+  blackboxVariant2,
+} from "../animations/BlackboxAnimation";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 

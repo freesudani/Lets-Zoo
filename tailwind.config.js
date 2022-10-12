@@ -37,6 +37,7 @@ module.exports = {
         map: "url(./images/stale-grut-bjqw7-Jl1N0-unsplash.jpg)",
         book: "url(./images/kimberly-farmer-lUaaKCUANVI-unsplash.jpg)",
         review: "url(./images/levi-guzman-zdSoe8za6Hs-unsplash.jpg)",
+        contact: "url(./images/image.jpg)",
       },
     },
   },

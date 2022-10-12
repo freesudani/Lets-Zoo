@@ -58,10 +58,10 @@ const Footer: FC = () => {
         </li>
       </ul>
       <div className="w-1/12 flex justify-between items-center my-7">
-        <div className="w-14 h-14 rounded-lg bg-white hover:bg-secondary-200 transition-all ease-in duration-300 flex justify-center items-center">
+        <div className="w-14 h-14 cursor-pointer rounded-lg bg-white hover:bg-secondary-200 transition-all ease-in duration-300 flex justify-center items-center">
           <GrFacebookOption className="text-4xl " />
         </div>
-        <div className="w-14 h-14 rounded-lg bg-white hover:bg-secondary-200 transition-all ease-in duration-300  flex justify-center items-center">
+        <div className="w-14 h-14 cursor-pointer rounded-lg bg-white hover:bg-secondary-200 transition-all ease-in duration-300  flex justify-center items-center">
           <GrMailOption className="text-4xl " />
         </div>
       </div>

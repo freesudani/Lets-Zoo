@@ -8,3 +8,14 @@ export type TestimonialProps = {
   source: string;
   parag: string;
 };
+
+export type FAQBoxProps = {
+  id: number;
+  question: string;
+  answer: string;
+  isActive: boolean;
+  setActiveIndex:
+    | React.Dispatch<React.SetStateAction<number | null>>
+    | undefined;
+  index: number;
+};

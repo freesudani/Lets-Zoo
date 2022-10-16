@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Scrolltotop from "./components/Scrolltotop";
 import Contact from "./pages/Contact";
+import FAQuestions from "./pages/FAQuestions";
 
 import Home from "./pages/Home";
 
@@ -15,6 +16,7 @@ const App: FC = () => {
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="contacts" element={<Contact />} />
+        <Route path="faq" element={<FAQuestions />} />
       </Routes>
       <Footer />
     </div>

@@ -19,3 +19,10 @@ export type FAQBoxProps = {
     | undefined;
   index: number;
 };
+
+export type AnimalProps = {
+  id: number;
+  title: string;
+  image: string;
+  details: string;
+};

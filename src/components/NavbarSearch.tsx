@@ -1,9 +1,30 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { motion, useCycle } from "framer-motion";
 import { searchVariant } from "../animations/SearchAnimation";
+import { data } from "../data/ListOfAnimals";
+import { AnimalProps } from "../types/types.types";
+import { useNavigate } from "react-router";
 
 const NavbarSearch: FC = () => {
+  const navigate = useNavigate();
   const [animation, cycleAnimation] = useCycle("animationOne", "animationTwo");
+  const [findAnimal, setFindAnimal] = useState<string>("");
+
+  const SearchHandler = () => {
+    if (findAnimal === "") {
+      cycleAnimation();
+    } else {
+      const foundAnimal: AnimalProps | undefined = data.find(
+        (A) => A.title === findAnimal
+      );
+      if (foundAnimal) {
+        navigate(`/information/${foundAnimal?.id}`);
+      } else {
+        navigate("/information");
+      }
+      setFindAnimal("");
+    }
+  };
 
   return (
     <div className="flex justify-end items-center w-[18rem]">
@@ -11,12 +32,16 @@ const NavbarSearch: FC = () => {
         <motion.input
           variants={searchVariant}
           animate={animation}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setFindAnimal(e.target.value)
+          }
+          value={findAnimal}
           type="text"
           placeholder="search animal"
           className="h-[3rem] p-3 outline-none  font-roboto text-3xl placeholder:text-2xl  placeholder:capitalize"
         />
       </div>
-      <div onClick={() => cycleAnimation()} className="mr-4">
+      <div onClick={SearchHandler} className="mr-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
